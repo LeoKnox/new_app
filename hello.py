@@ -1,9 +1,20 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, request
 app = Flask(__name__)
 
 @app.route('/index/<info>')
 def index(info):
     return 'new %s app' % info
+
+@app.route('/login', methods = ['POST','GET'])
+def login():
+    if request.method == 'POST':
+        user = request.form['nm']
+        return redirect(url_for('index', info = user))
+    else:
+        user = request.args.get('nm')
+        print(user)
+        user = "junk"
+        return redirect(url_for('index', info = user))
 
 @app.route('/room/<int:roomID>')
 def room(roomID):
