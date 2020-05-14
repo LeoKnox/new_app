@@ -30,7 +30,8 @@ def level(roomID):
 
 @app.route('/rooms')
 def rooms():
-    dict = {'entry':5,'storage':7,'prison':8}
+    #dict = {'entry':5,'storage':7,'prison':8}
+    dict = {'entry':[5, 5], 'storage':[8, 8], 'prison':[10, 10]}
     return render_template('rooms.html', rooms = dict)
 
 @app.route('/floor/<int:roomID>')
