@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route('/index/<info>')
 def index(info):
-    return 'new %s app' % info
+    return render_template('index.html', info=info)
 
 @app.route('/start')
 def start():
@@ -23,6 +23,10 @@ def login():
 @app.route('/room/<int:roomID>')
 def room(roomID):
     return 'This is room %d' % roomID
+
+@app.route('/level/<int:roomID>')
+def level(roomID):
+    return render_template('level.html', roomID=roomID)
 
 @app.route('/floor/<int:roomID>')
 def floor(roomID):
