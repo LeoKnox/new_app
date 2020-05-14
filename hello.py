@@ -28,6 +28,11 @@ def room(roomID):
 def level(roomID):
     return render_template('level.html', roomID=roomID)
 
+@app.route('/rooms')
+def rooms():
+    dict = {'entry':5,'storage':7,'prison':8}
+    return render_template('rooms.html', rooms = dict)
+
 @app.route('/floor/<int:roomID>')
 def floor(roomID):
     if roomID == 5:
