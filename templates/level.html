@@ -1,4 +1,7 @@
 <!doctype html>
+<head>
+    <script src="{{ url_for('static', filename = 'level.css') }}"></script>
+</head>
 <html>
     <body>
         {% if roomID>10 %}
@@ -6,5 +9,6 @@
         {% else %}
             <p>This room is on level 1</p>
         {% endif %}
+        <input type = "button" onclick = "saySomething()" value = "Speak" />
     </body>
 </html>
